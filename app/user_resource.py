@@ -13,18 +13,22 @@ class UserResource:
     def on_post(self, req, res):
         try:
             data_stream = req.media
-            UserModel(data_stream)
-            user = self.mongorepo.get_user(data_stream.get('email'))
-            if user:
-                raise falcon.HTTPBadRequest(title="Email already exists")
-            self.add_to_json_file(data_stream)
-            res.media = {"message":self.mongorepo.add_user(data_stream)}
-            res.status = falcon.HTTP_200
+            print(data_stream)
+            UserModel(req.media)
+            response=self.mongorepo.add_user(req.media)
+            if response:
+                data_to_save = {k: v for k, v in data_stream.items() if k != '_id'}
+                self.add_to_json_file(data_to_save)
+                res.media = {"message":"Successfully created"}
+                res.status = falcon.HTTP_200
 
         except falcon.HTTPBadRequest as e:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e.title)}
 
+        except ValueError:
+            res.media={"error":"Duplicate email"}
+            res.status = falcon.HTTP_400
         except Exception as e:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
