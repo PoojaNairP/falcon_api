@@ -6,7 +6,6 @@ class UserModel:
         self.name = data.get('name')
         self.email = data.get('email')
         self.age = data.get('age')
-        #self.data={"name":self.name,"email":self.email,"age":self.age}
         self.validate_fields(data)
 
 

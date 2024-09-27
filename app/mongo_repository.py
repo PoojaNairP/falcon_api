@@ -6,14 +6,13 @@ class MongoRepository:
         self.db = self.client['userdb']
         self.collection = self.db['users']
 
-
-    def get_user(self, user_id):
-        try:
-            return self.collection.find_one({'_id': int(user_id)})  # Convert to int
-        except Exception as e:
-            print(f"Error retrieving user: {e}")
-            return None
-
     def add_user(self, user_data):
-        result=self.collection.insert_one(user_data) # Add a user
+        result=self.collection.insert_one(user_data)
         return "Successfully added"
+
+    def get_user(self, email):
+        try:
+            return self.collection.find_one({'email': email}, {'_id': 0})
+        except Exception as e:
+            print(f"Error retrieving user details: {e}")
+            return None
