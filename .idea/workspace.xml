@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c59a1380-d005-472f-aaa5-38f9d5cbaf56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/mongo_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user_resource.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repository/mongo_repository.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/resources/users.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mongo_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mongo_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +18,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2mdV8KNtP27AfJvxLwPdoXhyfvZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,7 +32,7 @@
     "Python.model.executor": "Run",
     "Python.users.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/post-api"
+    "git-widget-placeholder": "feature/get-api"
   }
 }]]></component>
   <component name="RecentsManager">

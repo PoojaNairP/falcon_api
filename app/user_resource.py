@@ -14,14 +14,38 @@ class UserResource:
         try:
             data_stream = json.loads(req.stream.read())
             UserModel(data_stream)
+            user = self.mongorepo.get_user(data_stream.get('email'))
+            if user:
+                raise falcon.HTTPBadRequest(title="Email already exists")
             self.add_to_json_file(data_stream)
             res.media = {"message":self.mongorepo.add_user(data_stream)}
             res.status = falcon.HTTP_200
 
+        except falcon.HTTPBadRequest as e:
+            res.status = falcon.HTTP_400
+            res.media = {"error": str(e.title)}
 
         except Exception as e:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
+
+    def on_get(self,req,res):
+        try:
+            email=req.get_param('email')
+            user=self.mongorepo.get_user(email)
+            if not user:
+                raise falcon.HTTPBadRequest(title="No user found with given email")
+            res.status=falcon.HTTP_200
+            res.media=user
+
+        except falcon.HTTPBadRequest as e:
+            res.status = falcon.HTTP_400
+            res.media = {"message": str(e.title)}
+
+        except Exception as e:
+            res.status = falcon.HTTP_400
+            res.media = {"error": str(e)}
+
 
     def add_to_json_file(self,data_stream):
         try:
