@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c59a1380-d005-472f-aaa5-38f9d5cbaf56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mongo_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mongo_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_resource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_data.json" afterDir="false" />
     </list>
@@ -14,6 +13,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,16 +35,109 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test.TestUserResource.executor": "Run",
+    "Python tests.Python tests for test.test_on_get_user_found.executor": "Run",
+    "Python tests.Python tests for test.test_on_get_user_not_found.executor": "Run",
+    "Python tests.Python tests for test.test_on_post_user_added.executor": "Run",
+    "Python tests.Python tests for test.test_on_post_user_exists.executor": "Run",
+    "Python tests.Python tests for test.test_unexpected_fields.executor": "Run",
+    "Python tests.Python tests in test.py.executor": "Run",
     "Python.model.executor": "Run",
     "Python.users.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/get-api"
+    "git-widget-placeholder": "feature/testing"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\285421\PycharmProjects\falcon_api\app" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests in test.py">
+    <configuration name="Python tests for test.test_on_get_user_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.test_on_get_user_found&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test.test_on_post_user_added" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.test_on_post_user_added&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test.test_on_post_user_exists" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.test_on_post_user_exists&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test.test_unexpected_fields" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.test_unexpected_fields&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests in test.py" />
+        <item itemvalue="Python tests.Python tests for test.test_unexpected_fields" />
+        <item itemvalue="Python tests.Python tests for test.test_on_post_user_added" />
+        <item itemvalue="Python tests.Python tests for test.test_on_post_user_exists" />
+        <item itemvalue="Python tests.Python tests for test.test_on_get_user_found" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
