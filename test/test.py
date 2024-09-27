@@ -6,6 +6,7 @@ from app.model import UserModel
 from app.mongo_repository import MongoRepository
 from app.user_resource import UserResource
 
+
 @pytest.fixture
 def client():
     app = falcon.App()
@@ -38,15 +39,14 @@ def test_on_post_user_exists(client, mocker):
     body = json.dumps({'email': 'test@example.com', 'name': 'Test User', 'age': 25})
     result = client.simulate_post('/user', body=body)
     assert result.status == falcon.HTTP_400
-    assert 'Email already exists' in result.json["error"]
+    assert 'Email already exists' in result.json['error']
 
 def test_on_post_user_added(client, mocker):
-    mocker.patch.object(MongoRepository, 'get_user', return_value=None)
-    mocker.patch.object(MongoRepository, 'add_user', return_value='User added successfully')
+    mocker.patch.object(MongoRepository, 'add_user')
     body = json.dumps({"email": "newuser@example.com", "name": "New User", "age": 30})
     result = client.simulate_post('/user', body=body)
     assert result.status == falcon.HTTP_200
-    assert result.json['message'] == 'User added successfully'
+    assert result.json['message'] == 'Successfully created'
 
 def test_on_get_user_found(client, mocker):
     mocker.patch.object(MongoRepository, 'get_user', return_value={'email': 'test@example.com', 'name': 'Test User'})

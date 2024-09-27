@@ -1,18 +1,18 @@
 [
     {
-        "name": "A",
-        "email": "A@gmail.com",
-        "age": 10
+        "email": "newuser7@example.com",
+        "name": "New User",
+        "age": 30
     },
     {
-        "name": "A",
-        "email": "A@gmail.com",
-        "age": 10
+        "email": "newuser8@example.com",
+        "name": "New User",
+        "age": 30
     },
     {
-        "name": "B",
-        "email": "B@gmail.com",
-        "age": 10
+        "email": "newuser@example.com",
+        "name": "New User",
+        "age": 30
     },
     {
         "email": "newuser@example.com",
