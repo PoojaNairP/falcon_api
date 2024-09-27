@@ -12,7 +12,7 @@ class UserResource:
 
     def on_post(self, req, res):
         try:
-            data_stream = json.loads(req.stream.read())
+            data_stream = req.media
             UserModel(data_stream)
             user = self.mongorepo.get_user(data_stream.get('email'))
             if user:
