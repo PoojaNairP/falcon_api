@@ -26,8 +26,8 @@ class UserResource:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e.title)}
 
-        except ValueError:
-            res.media={"error":"Duplicate email"}
+        except ValueError as e:
+            res.media={"error": str(e)}
             res.status = falcon.HTTP_400
         except Exception as e:
             res.status = falcon.HTTP_400
@@ -55,7 +55,7 @@ class UserResource:
         try:
             filepath = 'user_data.json'
             with open(filepath, 'r') as file:
-                data = list(json.load(file))
+                data = json.load(file)
             data.append(data_stream)
             with open(filepath, 'w') as file:
                 json.dump(data, file, indent=4)

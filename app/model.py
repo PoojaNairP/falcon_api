@@ -18,6 +18,9 @@ class UserModel:
         if type(self.age)!=int:
             raise ValueError("Integer Value expected")
 
+        if type(self.name)!=str:
+            raise ValueError("Name should be a string")
+
         if self.age<1:
             raise ValueError(f"Age can't be less than 0")
 

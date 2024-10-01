@@ -1,22 +1,7 @@
 [
     {
-        "email": "newuser7@example.com",
-        "name": "New User",
-        "age": 30
-    },
-    {
-        "email": "newuser8@example.com",
-        "name": "New User",
-        "age": 30
-    },
-    {
-        "email": "newuser@example.com",
-        "name": "New User",
-        "age": 30
-    },
-    {
-        "email": "newuser@example.com",
-        "name": "New User",
-        "age": 30
+        "email": "test10@gmail.com",
+        "name": "Test",
+        "age": 10
     }
 ]

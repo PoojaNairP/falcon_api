@@ -10,7 +10,6 @@ class MongoRepository:
 
     def add_user(self, user_data):
         try:
-            print("")
             result=self.collection.insert_one(user_data)
             return True
         except DuplicateKeyError:
