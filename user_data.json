@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "email": "test@example.com",
+        "name": "Test User",
+        "age": 25
+    },
+    {
+        "email": "test@example.com",
+        "name": "Test User",
+        "age": 25
+    },
+    {
+        "email": "test@example.com",
+        "name": "Test User",
+        "age": 25
+    }
+]

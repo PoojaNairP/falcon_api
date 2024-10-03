@@ -17,6 +17,9 @@ class TestUserResource(unittest.TestCase):
         self.app.add_route('/user', self.user_resource)
         self.client = testing.TestClient(self.app)
 
+    def tearDown(self):
+        self.user_resource.mongorepo.close()
+
     @patch.object(MongoRepository, 'add_user')
     @patch.object(UserModel, 'load')
     def test_on_post_user_success(self, mock_load, mock_add_user):
