@@ -1,4 +1,5 @@
 import json
+import re
 
 import falcon
 
@@ -36,6 +37,8 @@ class UserResource:
     def on_get(self,req,res):
         try:
             email=req.get_param('email')
+            if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',email):
+                raise ValueError("Email is not valid")
             user=self.mongorepo.get_user(email)
             if not user:
                 raise falcon.HTTPBadRequest(title="No user found with given email")
