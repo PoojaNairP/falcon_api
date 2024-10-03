@@ -8,6 +8,9 @@ class MongoRepository:
         self.collection = self.db['users']
         self.collection.create_index([("email", 1)], unique=True)
 
+    def close(self):
+        self.client.close()
+
     def add_user(self, user_data):
         try:
             result=self.collection.insert_one(user_data)
