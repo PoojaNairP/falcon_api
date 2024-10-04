@@ -1,6 +1,4 @@
 import json
-import os
-from typing import Final
 
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError

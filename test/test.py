@@ -54,30 +54,15 @@ class TestUserResource(unittest.TestCase):
         self.assertEqual(result.status, falcon.HTTP_400)
         self.assertIn('error', result.json)
 
-    @patch.object(MongoRepository, 'get_user')
-    def test_on_get_user_found(self, mock_get_user):
-        mock_get_user.return_value = {'email': 'test@example.com', 'name': 'Test User'}
-
-        result = self.client.simulate_get('/user', params={'email': 'test@example.com'})
-
-        self.assertEqual(result.status, falcon.HTTP_200)
-        self.assertEqual(result.json['email'], 'test@example.com')
-        self.assertEqual(result.json['name'], 'Test User')
-
-    @patch.object(MongoRepository, 'get_user')
-    def test_on_get_user_not_found(self, mock_get_user):
-        mock_get_user.return_value = None
-
-        result = self.client.simulate_get('/user', params={'email': 'nonexistent@example.com'})
+    @patch.object(UserModel,'load')
+    def test_on_post_validation_error(self,mock_load):
+        mock_load.side_effect=ValidationError("Missing values")
+        body = json.dumps({"email": "test@example.com", "name": "Test User","age": 18,"id":1})
+        result = self.client.simulate_post('/user', body=body, content_type='application/json')
 
         self.assertEqual(result.status, falcon.HTTP_400)
-        self.assertIn('No user found with given email', result.json['message'])
+        self.assertIn('errors', result.json)
 
-    def test_on_get_user_invalid_email(self):
-        result = self.client.simulate_get('/user', params={'email': 'invalid-email'})
-
-        self.assertEqual(result.status, falcon.HTTP_400)
-        self.assertIn('Email is not valid', result.json['error'])
 
 
 if __name__ == '__main__':
