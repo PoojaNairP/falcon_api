@@ -1,4 +1,3 @@
-import json
 import re
 from marshmallow import ValidationError
 import falcon
@@ -30,14 +29,6 @@ class UserResource:
             res.status = falcon.HTTP_400
             res.media = {'errors': err.messages}
 
-        except falcon.HTTPBadRequest as e:
-            res.status = falcon.HTTP_400
-            res.media = {"error": str(e.title)}
-
-        except ValueError as e:
-            res.media={"error": str(e)}
-            res.status = falcon.HTTP_400
-
         except Exception as e:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
@@ -61,18 +52,5 @@ class UserResource:
         except Exception as e:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
-
-
-    def add_to_json_file(self,data_stream):
-        try:
-            filepath = 'user_data.json'
-            with open(filepath, 'r') as file:
-                data = json.load(file)
-            data.append(data_stream)
-            with open(filepath, 'w') as file:
-                json.dump(data, file, indent=4)
-
-        except Exception as e:
-            print(e)
 
 
