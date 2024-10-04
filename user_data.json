@@ -1,17 +1,7 @@
 [
     {
-        "email": "test@example.com",
-        "name": "Test User",
-        "age": 25
-    },
-    {
-        "email": "test@example.com",
-        "name": "Test User",
-        "age": 25
-    },
-    {
-        "email": "test@example.com",
-        "name": "Test User",
-        "age": 25
+        "email": "HP@gmail.com",
+        "name": "Harry",
+        "age": 40
     }
 ]

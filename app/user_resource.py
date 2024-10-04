@@ -22,8 +22,7 @@ class UserResource:
             response=self.mongorepo.add_user(req.media)
 
             if response:
-                data_to_save = {k: v for k, v in data_stream.items() if k != '_id'}
-                self.add_to_json_file(data_to_save)
+
                 res.media = {"message":"Successfully created"}
                 res.status = falcon.HTTP_201
 

@@ -1,3 +1,7 @@
+import json
+import os
+from typing import Final
+
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 
@@ -14,6 +18,8 @@ class MongoRepository:
     def add_user(self, user_data):
         try:
             result=self.collection.insert_one(user_data)
+            data_to_save = {k: v for k, v in user_data.items() if k != '_id'}
+            self.add_to_json_file(data_to_save)
             return True
         except DuplicateKeyError:
             raise Exception("Email already exists")
@@ -26,3 +32,22 @@ class MongoRepository:
         except Exception as e:
             print(f"Error retrieving user details: {e}")
             return None
+
+
+    def add_to_json_file(self, data_stream):
+        filepath = 'user_data.json'
+        try:
+            with open(filepath, 'r') as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            data = []
+        except json.JSONDecodeError:
+            data = []
+
+        data.append(data_stream)
+
+        try:
+            with open(filepath, 'w') as file:
+                json.dump(data, file, indent=4)
+        except Exception as e:
+            print(f"An error occurred while writing to the file: {e}")
