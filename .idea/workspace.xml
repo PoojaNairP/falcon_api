@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c59a1380-d005-472f-aaa5-38f9d5cbaf56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mongo_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mongo_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_resource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test.TestMongoRepository.executor": "Run",
+    "Python tests.Python tests for test.TestMongoRepository.test_add_user_duplicate_key.executor": "Run",
+    "Python tests.Python tests for test.TestMongoRepository.test_get_user_found.executor": "Run",
+    "Python tests.Python tests for test.TestMongoRepository.test_get_user_not_found.executor": "Run",
     "Python tests.Python tests for test.TestUserResource.executor": "Run",
+    "Python tests.Python tests for test.TestUserResource.test_add_user_success.executor": "Run",
+    "Python tests.Python tests for test.TestUserResource.test_on_get_invalid_email.executor": "Run",
     "Python tests.Python tests for test.TestUserResource.test_on_get_user_found.executor": "Run",
     "Python tests.Python tests for test.TestUserResource.test_on_get_user_invalid_email.executor": "Run",
     "Python tests.Python tests for test.TestUserResource.test_on_get_user_not_found.executor": "Run",
@@ -67,7 +72,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Python tests in test.py">
-    <configuration name="Python tests for test.TestUserResource.test_on_get_user_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,11 +83,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestUserResource.test_on_get_user_found&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test.TestUserResource.test_on_get_user_invalid_email" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository.test_add_user_duplicate_key" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,11 +98,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestUserResource.test_on_get_user_invalid_email&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository.test_add_user_duplicate_key&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test.TestUserResource.test_on_get_user_not_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository.test_get_user_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,11 +113,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestUserResource.test_on_get_user_not_found&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository.test_get_user_found&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test.TestUserResource.test_on_post_validation_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository.test_get_user_not_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,7 +128,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestUserResource.test_on_post_validation_error&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository.test_get_user_not_found&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -161,19 +166,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_found" />
-      <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_invalid_email" />
-      <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_not_found" />
-      <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_post_validation_error" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_add_user_duplicate_key" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_get_user_found" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_get_user_not_found" />
       <item itemvalue="Python tests.Python tests in test.py" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests in test.py" />
-        <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_not_found" />
-        <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_found" />
-        <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_get_user_invalid_email" />
-        <item itemvalue="Python tests.Python tests for test.TestUserResource.test_on_post_validation_error" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_get_user_not_found" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_get_user_found" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_add_user_duplicate_key" />
       </list>
     </recent_temporary>
   </component>
