@@ -14,7 +14,7 @@ class UserResource:
     def on_post(self, req, res):
         try:
             data_stream = req.media
-            print(data_stream)
+            #print(data_stream)
 
             schema=UserModel()
             schema.load(data_stream)
@@ -42,10 +42,8 @@ class UserResource:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
 
-    def on_get(self,req,res):
+    def on_get(self,req,res,email):
         try:
-            email=req.get_param('email')
-
             if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',email):
                 raise ValueError("Email is not valid")
 
