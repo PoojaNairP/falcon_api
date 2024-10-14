@@ -10,6 +10,7 @@ class UserResource:
     def __init__(self):
         self.mongorepo=MongoRepository()
 
+class PostUser(UserResource):
     def on_post(self, req, res):
         try:
             data_stream = req.media
@@ -33,6 +34,7 @@ class UserResource:
             res.status = falcon.HTTP_400
             res.media = {"error": str(e)}
 
+class GetUser(UserResource):
     def on_get(self,req,res,email):
         try:
             if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',email):
