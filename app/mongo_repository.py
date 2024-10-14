@@ -13,6 +13,12 @@ class MongoRepository:
     def close(self):
         self.client.close()
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.client.close()
+
     def add_user(self, user_data):
         try:
             result=self.collection.insert_one(user_data)
@@ -47,5 +53,6 @@ class MongoRepository:
         try:
             with open(filepath, 'w') as file:
                 json.dump(data, file, indent=4)
+            return True
         except Exception as e:
             print(f"An error occurred while writing to the file: {e}")

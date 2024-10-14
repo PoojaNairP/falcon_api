@@ -5,18 +5,18 @@ import falcon
 from falcon import testing
 from marshmallow import ValidationError
 from app.model import UserModel
-from app.user_resource import UserResource
+from app.user_resource import UserResource, PostUser, GetUser
 from app.mongo_repository import MongoRepository
 from pymongo.errors import DuplicateKeyError
 
 
-class TestUserResource(unittest.TestCase):
+class TestPostUser(unittest.TestCase):
 
     def setUp(self):
         self.app = falcon.App()
         self.user_resource = UserResource()
-        self.app.add_route('/user', self.user_resource)
-        self.app.add_route('/user/{email}', self.user_resource)
+        self.post_user=PostUser()
+        self.app.add_route('/user', self.post_user)
         self.client = testing.TestClient(self.app)
 
     def tearDown(self):
@@ -24,9 +24,11 @@ class TestUserResource(unittest.TestCase):
 
     @patch.object(MongoRepository, 'add_user')
     @patch.object(UserModel, 'load')
-    def test_on_post_user_success(self, mock_load, mock_add_user):
+    @patch.object(MongoRepository,'add_to_json_file')
+    def test_on_post_user_success(self, mock_load, mock_add_user,mock_add_to_json_file):
         mock_load.return_value = {}
         mock_add_user.return_value = True
+        mock_add_to_json_file.return_value=True
 
         body = json.dumps({"email": "test@example.com", "name": "Test User", "age": 25})
         result = self.client.simulate_post('/user', body=body, content_type='application/json')
@@ -64,6 +66,18 @@ class TestUserResource(unittest.TestCase):
 
         self.assertEqual(result.status, falcon.HTTP_400)
         self.assertIn('errors', result.json)
+
+class TestGetUser(unittest.TestCase):
+
+    def setUp(self):
+        self.app = falcon.App()
+        self.user_resource = UserResource()
+        self.get_user = GetUser()
+        self.app.add_route('/user/{email}', self.get_user)
+        self.client = testing.TestClient(self.app)
+
+    def tearDown(self):
+        self.user_resource.mongorepo.close()
 
     @patch.object(MongoRepository, 'get_user')
     def test_on_get_user_found(self, mock_get_user):
@@ -125,6 +139,7 @@ class TestMongoRepository(unittest.TestCase):
 
         self.assertEqual(str(context.exception), "Email already exists")
 
+
     def test_get_user_found(self):
         user_data = {'email': 'test@example.com', 'name': 'Test User'}
         self.mock_collection.find_one = MagicMock(return_value=user_data)
@@ -142,6 +157,13 @@ class TestMongoRepository(unittest.TestCase):
         self.assertIsNone(user)
         self.mock_collection.find_one.assert_called_once_with({'email': 'nonexistent@example.com'},{'_id':0})
 
+    def test_get_user_exception(self):
+        self.mock_collection.find_one = MagicMock(side_effect=Exception("Database connection error"))
+
+        user = self.repository.get_user('nonexistent@example.com')
+
+        self.assertIsNone(user)
+        self.mock_collection.find_one.assert_called_once_with({'email': 'nonexistent@example.com'}, {'_id': 0})
 
 if __name__ == '__main__':
     unittest.main()
