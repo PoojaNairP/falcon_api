@@ -1,5 +1,4 @@
 import json
-
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 
@@ -13,15 +12,9 @@ class MongoRepository:
     def close(self):
         self.client.close()
 
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.client.close()
-
     def add_user(self, user_data):
         try:
-            result=self.collection.insert_one(user_data)
+            self.collection.insert_one(user_data)
             data_to_save = {k: v for k, v in user_data.items() if k != '_id'}
             self.add_to_json_file(data_to_save)
             return True
@@ -47,9 +40,7 @@ class MongoRepository:
             data = []
         except json.JSONDecodeError:
             data = []
-
         data.append(data_stream)
-
         try:
             with open(filepath, 'w') as file:
                 json.dump(data, file, indent=4)
