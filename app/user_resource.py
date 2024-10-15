@@ -1,38 +1,30 @@
+import json
 import re
-from marshmallow import ValidationError
 import falcon
 
 from app.model import UserModel
 from app.mongo_repository import MongoRepository
+from app.response import GenericResponse
 
 
 class UserResource:
     def __init__(self):
         self.mongorepo=MongoRepository()
 
+
 class PostUser(UserResource):
     def on_post(self, req, res):
         try:
             data_stream = req.media
-            #print(data_stream)
-
-            schema=UserModel()
-            schema.load(data_stream)
-
+            UserModel(data_stream)
             response=self.mongorepo.add_user(req.media)
-
             if response:
-
-                res.media = {"message":"Successfully created"}
+                res.media = json.loads(GenericResponse(falcon.HTTP_201,"Successfully Created").to_json())
                 res.status = falcon.HTTP_201
 
-        except ValidationError as err:
+        except Exception as ex:
             res.status = falcon.HTTP_400
-            res.media = {'errors': err.messages}
-
-        except Exception as e:
-            res.status = falcon.HTTP_400
-            res.media = {"error": str(e)}
+            res.media = res.media = json.loads(GenericResponse(falcon.HTTP_400,str(ex)).to_json())
 
 class GetUser(UserResource):
     def on_get(self,req,res,email):
@@ -47,12 +39,12 @@ class GetUser(UserResource):
             res.status=falcon.HTTP_200
             res.media=user
 
-        except falcon.HTTPBadRequest as e:
+        except falcon.HTTPBadRequest as ex:
             res.status = falcon.HTTP_400
-            res.media = {"message": str(e.title)}
+            res.media = json.loads(GenericResponse(falcon.HTTP_400,str(ex.title)).to_json())
 
-        except Exception as e:
+        except Exception as ex:
             res.status = falcon.HTTP_400
-            res.media = {"error": str(e)}
+            res.media = json.loads(GenericResponse(falcon.HTTP_400,str(ex)).to_json())
 
 
