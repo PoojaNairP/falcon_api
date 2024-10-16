@@ -118,7 +118,7 @@ class TestGetUser(unittest.TestCase):
 
 class TestMongoRepository(unittest.TestCase):
 
-    @patch('app.mongo_repository.MongoClient')
+    @patch('mongo.app.mongo_repository.MongoClient')
     def setUp(self, mock_mongo_client):
         self.mock_client = mock_mongo_client.return_value
         self.mock_db = self.mock_client['test_database']
