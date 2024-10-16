@@ -32,7 +32,7 @@ class MongoRepository:
 
 
     def add_to_json_file(self, data_stream):
-        filepath = 'user_data.json'
+        filepath = 'mongo/user_data.json'
         try:
             with open(filepath, 'r') as file:
                 data = json.load(file)

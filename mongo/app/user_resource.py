@@ -2,9 +2,9 @@ import json
 import re
 import falcon
 
-from app.model import UserModel
-from app.mongo_repository import MongoRepository
-from app.response import GenericResponse
+from mongo.app.model import UserModel
+from mongo.app.mongo_repository import MongoRepository
+from mongo.app.response import GenericResponse
 
 
 class UserResource:

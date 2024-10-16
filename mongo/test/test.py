@@ -3,10 +3,8 @@ import unittest
 from unittest.mock import MagicMock, patch
 import falcon
 from falcon import testing
-from marshmallow import ValidationError
-from app.model import UserModel
-from app.user_resource import UserResource, PostUser, GetUser
-from app.mongo_repository import MongoRepository
+from mongo.app.user_resource import UserResource, PostUser, GetUser
+from mongo.app.mongo_repository import MongoRepository
 from pymongo.errors import DuplicateKeyError
 
 

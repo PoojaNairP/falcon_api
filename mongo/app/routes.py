@@ -1,4 +1,4 @@
-from app.user_resource import PostUser, GetUser
+from mongo.app.user_resource import PostUser, GetUser
 
 
 def setup_routes(app):
