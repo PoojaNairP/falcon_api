@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c59a1380-d005-472f-aaa5-38f9d5cbaf56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/elastic/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/mongo_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/response.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/app/user_resource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elastic/test/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/app/mongo_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/app/elastic_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/app/user_resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/app/user_resource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/test/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/test/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/user_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/user_data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,56 +36,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test.TestGetUser.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_add_user_Json_Decode_Error.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_add_user_duplicate_key.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_add_user_success.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_get_user_exception.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_get_user_found.executor": "Run",
-    "Python tests.Python tests for test.TestMongoRepository.test_get_user_not_found.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_email_exists.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_ExtraField.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidAge.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidEmail.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidName.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_MissingField.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_success.executor": "Run",
-    "Python tests.Python tests for test.TestPostUser.test_on_post_user_validation_error.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_add_user_success.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_get_invalid_email.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_get_user_found.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_get_user_invalid_email.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_get_user_not_found.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_post_email_exists.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_post_user_success.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_post_user_validation_error.executor": "Run",
-    "Python tests.Python tests for test.TestUserResource.test_on_post_validation_error.executor": "Run",
-    "Python tests.Python tests for test.test_age_less_than_one.executor": "Run",
-    "Python tests.Python tests for test.test_invalid_age_type.executor": "Run",
-    "Python tests.Python tests for test.test_invalid_datatype.executor": "Run",
-    "Python tests.Python tests for test.test_invalid_email_format.executor": "Run",
-    "Python tests.Python tests for test.test_missing_fields.executor": "Run",
-    "Python tests.Python tests for test.test_on_get_user_found.executor": "Run",
-    "Python tests.Python tests for test.test_on_get_user_not_found.executor": "Run",
-    "Python tests.Python tests for test.test_on_post_email_exists.executor": "Run",
-    "Python tests.Python tests for test.test_on_post_user_added.executor": "Run",
-    "Python tests.Python tests for test.test_on_post_user_exists.executor": "Run",
-    "Python tests.Python tests for test.test_unexpected_fields.executor": "Run",
-    "Python tests.Python tests in test.py (1).executor": "Run",
-    "Python tests.Python tests in test.py.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.model.executor": "Run",
-    "Python.users.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/285421/PycharmProjects/falcon_api/elastic"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test.TestGetUser.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_add_user_Json_Decode_Error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_add_user_duplicate_key.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_add_user_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_get_user_exception.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_get_user_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestMongoRepository.test_get_user_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_email_exists.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_ExtraField.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidAge.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidEmail.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_InvalidName.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_MissingField.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestPostUser.test_on_post_user_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_add_user_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_get_invalid_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_get_user_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_get_user_invalid_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_get_user_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_post_email_exists.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_post_user_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_post_user_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestUserResource.test_on_post_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_age_less_than_one.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_invalid_age_type.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_invalid_datatype.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_invalid_email_format.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_missing_fields.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_on_get_user_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_on_get_user_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_on_post_email_exists.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_on_post_user_added.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_on_post_user_exists.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.test_unexpected_fields.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test.py (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.users.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/elastic&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/285421/PycharmProjects/falcon_api/elastic&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\285421\PycharmProjects\falcon_api\elastic" />
@@ -115,33 +111,33 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for mongo.test.test.TestPostUser.test_on_post_user_InvalidEmail" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mongo/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/elastic/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mongo.test.test.TestPostUser.test_on_post_user_InvalidEmail&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for mongo.test.test.TestPostUser.test_on_post_user_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestMongoRepository.test_add_user_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mongo/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/elastic/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mongo.test.test.TestPostUser.test_on_post_user_success&quot;" />
+      <option name="_new_target" value="&quot;test.TestMongoRepository.test_add_user_success&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -175,6 +171,21 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="falcon_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/elastic/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/elastic/test/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <module name="falcon_api" />
       <option name="ENV_FILES" value="" />
@@ -194,8 +205,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Python tests for mongo.test.test.TestPostUser.test_on_post_user_InvalidEmail" />
-      <item itemvalue="Python tests.Python tests for mongo.test.test.TestPostUser.test_on_post_user_success" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository" />
+      <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_add_user_success" />
       <item itemvalue="Python tests.Python tests in test.py (1)" />
       <item itemvalue="Python tests.Python tests for mongo.test.test.TestMongoRepository.test_add_user_success" />
       <item itemvalue="Python tests.Python tests in test.py" />
@@ -203,10 +214,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests in test.py (1)" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository.test_add_user_success" />
+        <item itemvalue="Python tests.Python tests for test.TestMongoRepository" />
         <item itemvalue="Python tests.Python tests in test.py" />
         <item itemvalue="Python tests.Python tests for mongo.test.test.TestMongoRepository.test_add_user_success" />
-        <item itemvalue="Python tests.Python tests for mongo.test.test.TestPostUser.test_on_post_user_success" />
-        <item itemvalue="Python tests.Python tests for mongo.test.test.TestPostUser.test_on_post_user_InvalidEmail" />
       </list>
     </recent_temporary>
   </component>
@@ -238,15 +249,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/elastic/app/user_resource.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

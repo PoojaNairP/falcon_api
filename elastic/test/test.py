@@ -1,11 +1,10 @@
 import json
 import unittest
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 import falcon
 from falcon import testing
 from elastic.app.user_resource import UserResource, PostUser, GetUser
-from elastic.app.mongo_repository import MongoRepository
-from pymongo.errors import DuplicateKeyError
+from elastic.app.elastic_repository import ElasticRepository
 
 
 class TestPostUser(unittest.TestCase):
@@ -17,11 +16,8 @@ class TestPostUser(unittest.TestCase):
         self.app.add_route('/user', self.post_user)
         self.client = testing.TestClient(self.app)
 
-    def tearDown(self):
-        self.user_resource.mongorepo.close()
-
-    @patch.object(MongoRepository, 'add_user')
-    @patch.object(MongoRepository,'add_to_json_file')
+    @patch.object(ElasticRepository, 'add_user')
+    @patch.object(ElasticRepository, 'add_to_json_file')
     def test_on_post_user_success(self, mock_add_user,mock_add_to_json_file):
         mock_add_user.return_value = True
         mock_add_to_json_file.return_value=True
@@ -70,7 +66,7 @@ class TestPostUser(unittest.TestCase):
         self.assertEqual(result.status, falcon.HTTP_400)
         self.assertEqual(result.json['statusMessage'],"Email is not valid")
 
-    @patch.object(MongoRepository, 'add_user')
+    @patch.object(ElasticRepository, 'add_user')
     def test_on_post_email_exists(self, mock_add_user):
         mock_add_user.side_effect = Exception("Email already exists")
         body = json.dumps({"email": "test@example.com", "name": "Test User", "age": 25})
@@ -88,10 +84,7 @@ class TestGetUser(unittest.TestCase):
         self.app.add_route('/user/{email}', self.get_user)
         self.client = testing.TestClient(self.app)
 
-    def tearDown(self):
-        self.user_resource.mongorepo.close()
-
-    @patch.object(MongoRepository, 'get_user')
+    @patch.object(ElasticRepository, 'get_user')
     def test_on_get_user_found(self, mock_get_user):
         mock_get_user.return_value = {'email': 'test@example.com', 'name': 'Test User'}
         result = self.client.simulate_get('/user/test@example.com')
@@ -99,7 +92,7 @@ class TestGetUser(unittest.TestCase):
         self.assertEqual(result.json['email'], 'test@example.com')
         self.assertEqual(result.json['name'], 'Test User')
 
-    @patch.object(MongoRepository, 'get_user')
+    @patch.object(ElasticRepository, 'get_user')
     def test_on_get_user_not_found(self, mock_get_user):
         mock_get_user.return_value = None
         result = self.client.simulate_get('/user/test@example.com')
@@ -107,60 +100,13 @@ class TestGetUser(unittest.TestCase):
         self.assertEqual(result.json['statusMessage'], 'No user found with given email')
 
 
-    @patch.object(MongoRepository, 'get_user')
+    @patch.object(ElasticRepository, 'get_user')
     def test_on_get_invalid_email(self, mock_get_user):
         mock_get_user.return_value = None
         result = self.client.simulate_get('/user/test')
         self.assertEqual(result.status, falcon.HTTP_400)
         self.assertEqual(result.json['statusMessage'], 'Email is not valid')
 
-
-
-class TestMongoRepository(unittest.TestCase):
-
-    @patch('elastic.app.mongo_repository.MongoClient')
-    def setUp(self, mock_mongo_client):
-        self.mock_client = mock_mongo_client.return_value
-        self.mock_db = self.mock_client['test_database']
-        self.mock_collection = self.mock_db['users']
-        self.repository = MongoRepository()
-        self.repository.collection = self.mock_collection
-
-    @patch.object(MongoRepository,'add_to_json_file')
-    def test_add_user_success(self,mock_add_to_json_file):
-        mock_add_to_json_file.return_value = True
-        user_data = {'email': 'test@example.com', 'name': 'Test User'}
-        self.mock_collection.insert_one = MagicMock(return_value=True)
-        result = self.repository.add_user(user_data)
-        self.assertTrue(result)
-        self.mock_collection.insert_one.assert_called_once_with(user_data)
-
-    def test_add_user_duplicate_key(self):
-        user_data = {'email': 'test@example.com', 'name': 'Test User'}
-        self.mock_collection.insert_one.side_effect = DuplicateKeyError("Email already exists")
-        with self.assertRaises(Exception) as context:
-            self.repository.add_user(user_data)
-        self.assertEqual(str(context.exception), "Email already exists")
-
-
-    def test_get_user_found(self):
-        user_data = {'email': 'test@example.com', 'name': 'Test User'}
-        self.mock_collection.find_one = MagicMock(return_value=user_data)
-        user = self.repository.get_user('test@example.com')
-        self.assertEqual(user, user_data)
-        self.mock_collection.find_one.assert_called_once_with({'email': 'test@example.com'},{'_id':0})
-
-    def test_get_user_not_found(self):
-        self.mock_collection.find_one = MagicMock(return_value=None)
-        user = self.repository.get_user('nonexistent@example.com')
-        self.assertIsNone(user)
-        self.mock_collection.find_one.assert_called_once_with({'email': 'nonexistent@example.com'},{'_id':0})
-
-    def test_get_user_exception(self):
-        self.mock_collection.find_one = MagicMock(side_effect=Exception("Database connection error"))
-        user = self.repository.get_user('nonexistent@example.com')
-        self.assertIsNone(user)
-        self.mock_collection.find_one.assert_called_once_with({'email': 'nonexistent@example.com'}, {'_id': 0})
 
 if __name__ == '__main__':
     unittest.main()
