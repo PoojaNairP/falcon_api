@@ -1,30 +1,26 @@
 import json
-from pymongo import MongoClient
-from pymongo.errors import DuplicateKeyError
+from elasticsearch import Elasticsearch, ConflictError
 
-class MongoRepository:
+
+class ElasticRepository:
     def __init__(self):
-        self.client = MongoClient('mongodb://localhost:27017/')
-        self.db = self.client['userdb']
-        self.collection = self.db['users']
-        self.collection.create_index([("email", 1)], unique=True)
-
-    def close(self):
-        self.client.close()
+        self.es = Elasticsearch(['http://localhost:9200'], http_auth=('elastic', 'kyXqM*IZV0Y6kNAcT24P'))
 
     def add_user(self, user_data):
         try:
-            self.collection.insert_one(user_data)
-            data_to_save = {k: v for k, v in user_data.items() if k != '_id'}
-            self.add_to_json_file(data_to_save)
+            self.es.index(index='users',id=user_data['email'],document=user_data,op_type='create')
+            self.add_to_json_file(user_data)
             return True
-        except DuplicateKeyError:
+        except ConflictError:
             raise Exception("Email already exists")
 
 
     def get_user(self, email):
         try:
-            return self.collection.find_one({'email': email}, {'_id': 0})
+             response=self.es.search(index='users',query={'term': {'email.keyword': email}})
+             if not response['hits']['hits']:
+                 return False
+             return response['hits']['hits'][0]['_source']
 
         except Exception as e:
             print(f"Error retrieving user details: {e}")

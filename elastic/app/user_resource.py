@@ -3,13 +3,13 @@ import re
 import falcon
 
 from elastic.app.model import UserModel
-from elastic.app.mongo_repository import MongoRepository
+from elastic.app.elastic_repository import ElasticRepository
 from elastic.app.response import GenericResponse
 
 
 class UserResource:
     def __init__(self):
-        self.mongorepo=MongoRepository()
+        self.elastic_repo=ElasticRepository()
 
 
 class PostUser(UserResource):
@@ -17,7 +17,7 @@ class PostUser(UserResource):
         try:
             data_stream = req.media
             UserModel(data_stream)
-            response=self.mongorepo.add_user(req.media)
+            response=self.elastic_repo.add_user(req.media)
             if response:
                 res.media = json.loads(GenericResponse(falcon.HTTP_201,"Successfully Created").to_json())
                 res.status = falcon.HTTP_201
@@ -32,7 +32,7 @@ class GetUser(UserResource):
             if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',email):
                 raise ValueError("Email is not valid")
 
-            user=self.mongorepo.get_user(email)
+            user=self.elastic_repo.get_user(email)
             if not user:
                 raise falcon.HTTPBadRequest(title="No user found with given email")
 
